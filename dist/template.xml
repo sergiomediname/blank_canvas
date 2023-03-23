@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html b:css="false" b:css="false">
+  <head>
+    <title>
+      <data:view.title.escaped/>
+    </title>
+    <b:skin>
+    </b:skin>
+  </head>
+  <body>
+    <div class="template">
+      <header class="header">
+        Partial Header
+      </header>      <main class="main">
+        <b:section id="content"/>
+      </main>
+      <footer class="footer">
+        <data:blog.title />
+      </footer>    </div>
+  </body>
+</html>
