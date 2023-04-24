@@ -1,0 +1,45 @@
+<b:defaultmarkups>
+  {{!-- Clean all inclusions of all widgets automatically --}}
+  {{#each defaultIncludables}}
+  <b:defaultmarkup type='{{@key}}'>
+    {{#each this}}
+    <b:includable id='{{this}}' />
+    {{/each}}
+  </b:defaultmarkup>
+  {{/each}}
+  {{!-- Add default markups --}}
+  <b:defaultmarkup type='Common'>
+    {{> head}}
+    {{!-- functions --}}
+    {{> @attr}}
+    {{> @navbar}}
+    {{> @menu}}
+    {{> @meta}}
+    {{!-- modules:others --}}
+    {{> assets}}
+    {{!-- widgets (Read-only excluded: Attribution, Followers) --}}
+    {{> Header}}
+    {{> HTML}}
+    {{> PageList}}
+    {{!-- Server-side --}}
+    {{> widget-title}}
+  </b:defaultmarkup>
+  {{!-- Add default markups for all widgets --}}
+  <b:defaultmarkup type='All'>
+    <b:includable id='main' var='this'>
+      <b:include name='widget-title' />
+      <b:include name='content' />
+    </b:includable>
+    <b:includable id='content'>
+      {{!-- Add a wrapper for all widgets --}}
+      <div class='widget-content'>
+        <b:include expr:name='"widget:" + data:widget.type' />
+      </div>
+    </b:includable>
+  </b:defaultmarkup>
+  {{!-- AdSense, Header and Blog widgets not require a wrapper or a title --}}
+  <b:defaultmarkup type='BloggerButton,BlogList,Feed,ReportAbuse,Stats,Translate,Wikipedia'>
+    <b:includable id='main' />
+    <b:includable id='content' />
+  </b:defaultmarkup>
+</b:defaultmarkups>

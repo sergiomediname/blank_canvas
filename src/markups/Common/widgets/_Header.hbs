@@ -1,0 +1,29 @@
+<b:includable id="widget:Header">
+  <b:if cond='data:widget.sectionId != "header"'>
+    {{!-- If sectionId is not "logo" --}}
+    <data:messages.theresNothingHere />
+    <b:else />
+    <div class="header-logo">
+      {{!-- If image exists --}}
+      <b:if cond='data:image'>
+        <a class="header-logo__image" expr:href='data:blog.homepageUrl'>
+          <img expr:alt='data:title' expr:height='data:height' expr:src='data:image' expr:width='data:width' />
+        </a>
+      </b:if>
+      {{!-- If imagePlacement is "BEHIND" --}}
+      <b:if cond='data:imagePlacement == "BEHIND"'>
+        <div class="header-logo__title">
+          <a expr:href='data:blog.homepageUrl'>
+            <data:title />
+          </a>
+        </div>
+      </b:if>
+      {{!-- If description exists and imagePlacement is not "REPLACE" --}}
+      <b:if cond='data:description and data:imagePlacement != "REPLACE"'>
+        <div class="header-logo__subtitle">
+          <data:description />
+        </div>
+      </b:if>
+    </div>
+  </b:if>
+</b:includable>

@@ -1,0 +1,9 @@
+<b:includable id='@navbar'>
+  <b:loop values='data:links' var='link' index="i">
+    <li class='nav__item'>
+      <a class='nav__link' expr:href='data:link.href'>
+        <data:link.title />
+      </a>
+    </li>
+  </b:loop>
+</b:includable>

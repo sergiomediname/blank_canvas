@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "node app.js"
   },
+  "keywords": [
+    "prettier"
+  ],
   "author": "Sergio Medina <sergiomedina.me@gmail.com>",
   "license": "MIT",
   "devDependencies": {

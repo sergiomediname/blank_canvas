@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
-<html b:css="false" b:css="false">
-  <head>
-    <title>
-      <data:view.title.escaped/>
-    </title>
-    <b:skin>
-    </b:skin>
-  </head>
-  <body>
-    <div class="template">
-      {{> header}}
-      <main class="main">
-        <b:section id="content"/>
-      </main>
-      {{> footer}}
-    </div>
-  </body>
+<html b:css="false" b:js="true" b:defaultwidgetversion="2" b:layoutsVersion="3" expr:dir="data:blog.languageDirection"
+  expr:lang="data:blog.locale">
+
+<head>
+  <meta expr:charset="data:blog.encoding" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <title>
+    <data:view.title.escaped />
+  </title>
+  <b:include name='m:head' />
+  <b:include data='{get: "font"}' name='s:assets' />
+  {{>skin}}
+  <b:comment>CORE v{{version}}</b:comment>
+  {{>markups}}
+  <b:comment>/END CORE</b:comment>
+
+</head>
+
+<body>
+  <div class="template">
+    {{!-- Header section --}}
+    {{> header}}
+    {{!-- Main section --}}
+    <main class="main">
+      <div class="container">
+        <div class="wrapp">
+          {{!-- Content section --}}
+          {{> content}}
+          {{!-- Sidebar section --}}
+          {{> sidebar}}
+        </div>
+      </div>
+    </main>
+    {{> footer}}
+  </div>
+</body>
+
 </html>

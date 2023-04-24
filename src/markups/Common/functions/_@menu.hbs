@@ -1,0 +1,26 @@
+<b:includable id='@menu'>
+  <b:with value='"__"' var='prefix'>
+    <b:loop values='data:links' var='link' index="i">
+      <b:if cond='data:widget.sectionId == "navigation"'>
+        <b:with
+          value='{start: ((data:links[data:i + 1].title contains data:prefix) and (data:link.title not contains data:prefix)), end: ((data:links[data:i + 1].title not contains data:prefix) and (data:link.title contains data:prefix))}'
+          var='menu'>
+          &lt;li class="menu__item<b:if cond='data:menu.start'> menu__item--submenu"</b:if>"
+          &gt;<a class="menu__link" expr:href="data:link.href">
+            <data:link.title />
+          </a>
+          <b:if cond="data:menu.start">
+            <button data-toggle="data-toggle" aria-label="toggle" />&lt;ul
+            class='menu__submenu'&gt;
+          </b:if>
+          <b:if cond="data:menu.end">&lt;/li&gt;&lt;/ul&gt;</b:if>
+          <b:if cond="!data:menu.start">&lt;/li&gt;</b:if>
+        </b:with>
+        <b:else />
+        <li><a expr:href="data:link.href">
+            <data:link.title />
+          </a></li>
+      </b:if>
+    </b:loop>
+  </b:with>
+</b:includable>

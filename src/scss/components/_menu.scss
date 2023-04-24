@@ -1,0 +1,24 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  &__item {
+    position: relative;
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &__submenu {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__item--submenu {
+    &:hover {
+      .menu__submenu {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}

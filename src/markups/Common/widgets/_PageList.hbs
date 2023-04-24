@@ -1,0 +1,15 @@
+<b:includable id='widget:PageList'>
+  <div class='pages'>
+    {{!-- If the widget is in the header section, add the class 'pages-header' --}}
+    <b:class cond='data:widget.sectionId == "header"' name='pages--header' />
+    <nav class='navbar'>
+      <ul class='nav'>
+        <b:if cond='data:widget.sectionId == "header"'>
+          <b:include name='@menu' />
+          <b:else />
+          <b:include name='@navbar' />
+        </b:if>
+      </ul>
+    </nav>
+  </div>
+</b:includable>

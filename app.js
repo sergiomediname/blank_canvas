@@ -1,3 +1,5 @@
+// const data = require('./src/data/includable')
+const data = require('./data.json')
 const fs = require('fs')
 const path = require('path')
 const glob = require('glob')
@@ -55,7 +57,7 @@ function compileHandlebars (folderPath) {
     const source = fs.readFileSync(input, 'utf8')
     const template = Handlebars.compile(source)
 
-    const output = template()
+    const output = template(data)
     const filePath = path.join(__dirname, DIST_DIR, `./${file.replace('.hbs', '.xml')}`)
 
     fs.writeFileSync(filePath, output)
@@ -100,6 +102,44 @@ function compileSass () {
   })
 }
 
+// Handlebars helpers
+Handlebars.registerHelper('asset', function readFileHelper (filePath) {
+  const fullPath = `./dist/${filePath}`
+
+  if (!fs.existsSync(fullPath)) {
+    const result = `Error: File ${fullPath} does not exist`
+    console.error(result)
+    return `/*${result}*/`
+  }
+
+  const content = fs.readFileSync(fullPath, 'utf8')
+  return new Handlebars.SafeString(content)
+})
+
+Handlebars.registerHelper('variable', function (name = 'null', options) {
+  const attributes = []
+
+  const Default = {
+    description: name,
+    type: 'string',
+    value: '',
+    ...options.hash
+  }
+
+  Object.keys(Default).forEach(key => {
+    const attribute = Handlebars.escapeExpression(key)
+    const value = Handlebars.escapeExpression(Default[key])
+    attributes.push(`${attribute}="${value}"`)
+  })
+
+  if (!(attributes.includes('type="string"'))) {
+    attributes.push(`default="${Default.value}"`)
+  }
+
+  const output = `<Variable name="${name}" ${attributes.join(' ')}/>`
+  return new Handlebars.SafeString(output)
+})
+
 // Escuchar cambios en los archivos y compilarlos
 chokidar.watch(SOURCE_DIR, {
   ignored: [
@@ -120,6 +160,7 @@ chokidar.watch(SOURCE_DIR, {
     case '.scss':
     case '.sass':
       compileSass()
+      compileHandlebars(SOURCE_DIR)
       break
     case '.hbs':
       compileHandlebars(SOURCE_DIR)
