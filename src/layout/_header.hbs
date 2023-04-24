@@ -1,14 +1,17 @@
 <header class="header">
   <div class="container">
     <div class="wrap">
-      <b:section id='header'>
+      <b:section id='top-header'
+        expr:cond='["true", "false"] contains data:skin.vars.s_top_header ? data:skin.vars.s_top_header : "false"'>
+      </b:section>
+      <b:section id='main-header'>
         <b:widget id='Header1' locked='false' title='Título (Encabezado)' type='Header' visible='true' />
         <b:widget id='PageList1' locked='false' title='Páginas' type='PageList' visible='true' />
       </b:section>
-      {{!-- <b:section id='logo' maxwidgets='1'>
+
+      <b:section id='bottom-header'
+        expr:cond='["true", "false"] contains data:skin.vars.s_bottom_header ? data:skin.vars.s_bottom_header : "false"'>
       </b:section>
-      <b:section id='navigation' maxwidgets='1'>
-      </b:section> --}}
     </div>
   </div>
 </header>

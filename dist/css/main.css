@@ -34,7 +34,7 @@ a {
   color: var(--main-color);
 }
 
-.header .wrap {
+.header #main-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;

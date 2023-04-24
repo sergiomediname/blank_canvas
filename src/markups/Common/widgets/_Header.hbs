@@ -1,5 +1,5 @@
 <b:includable id="widget:Header">
-  <b:if cond='data:widget.sectionId != "header"'>
+  <b:if cond='["top-header", "main-header", "bottom-header"] not contains data:widget.sectionId'>
     {{!-- If sectionId is not "logo" --}}
     <data:messages.theresNothingHere />
     <b:else />

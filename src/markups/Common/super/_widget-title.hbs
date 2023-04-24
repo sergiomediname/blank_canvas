@@ -5,7 +5,8 @@ Remplace widget-title
 <b:includable id='widget-title'>
   <b:include name='@attr' data='{["id"],["data-version"]}' />
   {{!-- If sectionId is not "header" or title exists --}}
-  <b:if cond='data:widget.sectionId != "header" and (data:defaultTitle or data:title.length != 0)'>
+  <b:if
+    cond='["top-header", "main-header", "bottom-header"] not contains data:widget.sectionId and (data:defaultTitle or data:title.length != 0)'>
     {{!-- Title --}}
     <div class='widget-title'>
       <span class='widget-name'>
