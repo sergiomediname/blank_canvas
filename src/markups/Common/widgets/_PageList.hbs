@@ -1,15 +1,17 @@
 <b:includable id='widget:PageList'>
   <div class='pages'>
     {{!-- If the widget is in the header section, add the class 'pages-header' --}}
-    <b:class cond='data:widget.sectionId == "header"' name='pages--header' />
-    <nav class='navbar'>
-      <ul class='nav'>
-        <b:if cond='data:widget.sectionId == "header"'>
-          <b:include name='@menu' />
-          <b:else />
-          <b:include name='@navbar' />
-        </b:if>
-      </ul>
-    </nav>
+    <b:with value='data:widget.sectionId == "main-header"' var='is_menu'>
+      <b:class expr:cond='data:is_menu' name='pages--header' />
+      <nav class='navbar'>
+        <ul expr:class='data:is_menu ? "menu" : "nav"'>
+          <b:if cond='data:is_menu'>
+            <b:include name='@menu' />
+            <b:else />
+            <b:include name='@navbar' />
+          </b:if>
+        </ul>
+      </nav>
+    </b:with>
   </div>
 </b:includable>

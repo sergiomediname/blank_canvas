@@ -204,26 +204,20 @@
       <b:includable id='@menu'>
         <b:with value='"__"' var='prefix'>
           <b:loop values='data:links' var='link' index="i">
-            <b:if cond='data:widget.sectionId == "navigation"'>
-              <b:with
-                value='{start: ((data:links[data:i + 1].title contains data:prefix) and (data:link.title not contains data:prefix)), end: ((data:links[data:i + 1].title not contains data:prefix) and (data:link.title contains data:prefix))}'
-                var='menu'>
-                &lt;li class="menu__item<b:if cond='data:menu.start'> menu__item--submenu"</b:if>"
-                &gt;<a class="menu__link" expr:href="data:link.href">
-                  <data:link.title />
-                </a>
-                <b:if cond="data:menu.start">
-                  <button data-toggle="data-toggle" aria-label="toggle" />&lt;ul
-                  class='menu__submenu'&gt;
-                </b:if>
-                <b:if cond="data:menu.end">&lt;/li&gt;&lt;/ul&gt;</b:if>
-                <b:if cond="!data:menu.start">&lt;/li&gt;</b:if>
-              </b:with>
-              <b:else />
-              <li><a expr:href="data:link.href">
-                  <data:link.title />
-                </a></li>
-            </b:if>
+            <b:with
+              value='{start: ((data:links[data:i + 1].title contains data:prefix) and (data:link.title not contains data:prefix)), end: ((data:links[data:i + 1].title not contains data:prefix) and (data:link.title contains data:prefix))}'
+              var='menu'>
+              &lt;li class="menu__item<b:if cond='data:menu.start'> menu__item--submenu"</b:if>"
+              &gt;<a class="menu__link" expr:href="data:link.href">
+                <data:link.title />
+              </a>
+              <b:if cond="data:menu.start">
+                <button data-toggle="data-toggle" aria-label="toggle" />&lt;ul
+                class='menu__submenu'&gt;
+              </b:if>
+              <b:if cond="data:menu.end">&lt;/li&gt;&lt;/ul&gt;</b:if>
+              <b:if cond="!data:menu.start">&lt;/li&gt;</b:if>
+            </b:with>
           </b:loop>
         </b:with>
       </b:includable>
@@ -435,16 +429,18 @@
       </b:includable>
       <b:includable id='widget:PageList'>
         <div class='pages'>
-          <b:class cond='data:widget.sectionId == "header"' name='pages--header' />
-          <nav class='navbar'>
-            <ul class='nav'>
-              <b:if cond='data:widget.sectionId == "header"'>
-                <b:include name='@menu' />
-                <b:else />
-                <b:include name='@navbar' />
-              </b:if>
-            </ul>
-          </nav>
+          <b:with value='data:widget.sectionId == "main-header"' var='is_menu'>
+            <b:class expr:cond='data:is_menu' name='pages--header' />
+            <nav class='navbar'>
+              <ul expr:class='data:is_menu ? "menu" : "nav"'>
+                <b:if cond='data:is_menu'>
+                  <b:include name='@menu' />
+                  <b:else />
+                  <b:include name='@navbar' />
+                </b:if>
+              </ul>
+            </nav>
+          </b:with>
         </div>
       </b:includable>
       <b:includable id='widget-title'>
@@ -487,6 +483,7 @@
           <b:section id='top-header'
             expr:cond='["true", "false"] contains data:skin.vars.s_top_header ? data:skin.vars.s_top_header : "false"'>
           </b:section>
+    
           <b:section id='main-header'>
             <b:widget id='Header1' locked='false' title='Título (Encabezado)' type='Header' visible='true' />
             <b:widget id='PageList1' locked='false' title='Páginas' type='PageList' visible='true' />
