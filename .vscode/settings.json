@@ -14,6 +14,7 @@
     "editor.detectIndentation": false
   },
   "conventionalCommits.scopes": [
-    "widget:PageList"
+    "widget:PageList",
+    "header"
   ]
 }

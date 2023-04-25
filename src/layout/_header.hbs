@@ -1,18 +1,34 @@
 <header class="header">
-  <div class="container">
-    <div class="wrap">
-      <b:section id='top-header'
-        expr:cond='["true", "false"] contains data:skin.vars.s_top_header ? data:skin.vars.s_top_header : "false"'>
-      </b:section>
+  <b:if cond='["true", "false"] contains data:skin.vars.s_top_header ? data:skin.vars.s_top_header : "false"'>
+    <div class="top-header">
+      <div class="container">
+        <div class="wrap">
+          <b:section id='top-header'>
+          </b:section>
+        </div>
+      </div>
+    </div>
+  </b:if>
 
-      <b:section id='main-header'>
-        <b:widget id='Header1' locked='false' title='Título (Encabezado)' type='Header' visible='true' />
-        <b:widget id='PageList1' locked='false' title='Páginas' type='PageList' visible='true' />
-      </b:section>
-
-      <b:section id='bottom-header'
-        expr:cond='["true", "false"] contains data:skin.vars.s_bottom_header ? data:skin.vars.s_bottom_header : "false"'>
-      </b:section>
+  <div class="main-header">
+    <div class="container">
+      <div class="wrap">
+        <b:section id='main-header'>
+          <b:widget id='Header1' locked='false' title='Título (Encabezado)' type='Header' visible='true' />
+          <b:widget id='PageList1' locked='false' title='Páginas' type='PageList' visible='true' />
+        </b:section>
+      </div>
     </div>
   </div>
+
+  <b:if cond='["true", "false"] contains data:skin.vars.s_bottom_header ? data:skin.vars.s_bottom_header : "false"'>
+    <div class="bottom-header">
+      <div class="container">
+        <div class="wrap">
+          <b:section id='bottom-header'>
+          </b:section>
+        </div>
+      </div>
+    </div>
+  </b:if>
 </header>
