@@ -29,10 +29,10 @@
       Settings
       =====================
       # Show Top Header
-      <Variable name="s.top_header" description="s.top_header" type="string" value="true"/>
+      <Variable name="s.top_header" description="s.top_header" type="string" value="false"/>
       
       # Show Bottom Header
-      <Variable name="s.bottom_header" description="s.bottom_header" type="string" value="true"/>
+      <Variable name="s.bottom_header" description="s.bottom_header" type="string" value="false"/>
   
       Customization
       =====================

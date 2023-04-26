@@ -1,17 +1,20 @@
-// const data = require('./src/data/includable')
-const data = require('./data.json')
-const fs = require('fs')
-const path = require('path')
-const glob = require('glob')
+import * as url from 'url'
 
-const Handlebars = require('handlebars')
-const chokidar = require('chokidar')
+import data from './data.js'
+import fs from 'fs'
+import path from 'path'
+import glob from 'glob'
 
-const sass = require('sass')
-const CleanCSS = require('clean-css')
-const autoprefixer = require('autoprefixer')
-const postcss = require('postcss')
+import Handlebars from 'handlebars'
+import chokidar from 'chokidar'
 
+import sass from 'sass'
+import CleanCSS from 'clean-css'
+import autoprefixer from 'autoprefixer'
+import postcss from 'postcss'
+import clipboard from 'clipboardy'
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 const SOURCE_DIR = './src'
 const DIST_DIR = './dist'
 
@@ -61,6 +64,10 @@ function compileHandlebars (folderPath) {
     const filePath = path.join(__dirname, DIST_DIR, `./${file.replace('.hbs', '.xml')}`)
 
     fs.writeFileSync(filePath, output)
+
+    // Agregamos la template a portapapeles
+    clipboard.writeSync(output)
+
     console.timeEnd(`${file} compiled in`)
   })
 }
