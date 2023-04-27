@@ -15,6 +15,7 @@
   },
   "conventionalCommits.scopes": [
     "widget:PageList",
-    "header"
+    "header",
+    "widget:Blog"
   ]
 }

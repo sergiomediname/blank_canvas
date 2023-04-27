@@ -1,0 +1,21 @@
+<b:includable id='widget:Blog'>
+  <b:with value='data:widgets.Blog1.allBylineItems' var='show'>
+    {{!-- Show in Post or Page --}}
+    <b:if cond='data:view.isSingleItem'>
+      <article class="post">
+        <p>Single post/page</p>
+      </article>
+      {{!-- Show in Home or Archive --}}
+      <b:else />
+      {{!-- If posts is empty, show a message --}}
+      <b:if cond='data:posts.empty or data:view.isError'>
+        <p>No items</p>
+        {{!-- If posts is not empty, show posts --}}
+        <b:else />
+        <div class='cards'>
+          <b:include name='post:card' />
+        </div>
+      </b:if>
+    </b:if>
+  </b:with>
+</b:includable>

@@ -1,0 +1,52 @@
+<b:includable id='post:card'>
+  <b:loop values='data:items ?: data:posts' var='post'>
+    <article class='card'>
+
+      {{!-- If the post has a featured image, display it --}}
+      <b:if cond='data:post.featuredImage'>
+        <b:with
+          value='["21:9", "16:9", "4:3", "1:1", "1:2", "2:3", "5:7"] contains data:skin.vars.e_ratio ? data:skin.vars.e_ratio : "4:3"'
+          var='ratio'>
+          <div expr:class='"card__thumb ratio" + " ratio--" + data:ratio'>
+            <b:class name='has-image' />
+            <a expr:href='data:post.url.canonical'>
+              <img expr:src="data:post.featuredImage" expr:alt="data:post.title.escaped"
+                expr:title="data:post.title.escaped" />
+            </a>
+          </div>
+        </b:with>
+      </b:if>
+
+      <div class='card__content'>
+        <div class='card__wrap'>
+          {{!-- If title is empty, display "No title" --}}
+          <h2 class='card__title'>
+            <a expr:href='data:post.url.canonical'>
+              <b:eval expr='data:post.title.escaped != "" ? data:post.title.escaped : data:messages.noTitle' />
+            </a>
+          </h2>
+
+          <b:if cond='[true, false] contains data:skin.vars.e_meta ? data:skin.vars.e_meta : true'>
+            <div class='card__meta'>
+              <b:include name='post:meta' />
+            </div>
+          </b:if>
+
+          {{!-- If snippet is not empty, display it --}}
+          <b:if
+            cond='(data:post.snippets.short snippet { linebreaks: false, links: false, ellipsis: false }) != "" and ([true, false] contains data:skin.vars.e_snippet ? data:skin.vars.e_snippet : true)'>
+            <p class="card__snippet">
+              {{!-- Get the number of characters for the fragment --}}
+              <b:with
+                value='((data:skin.vars.e_snippetLength not in [true,false]) and (data:skin.vars.e_snippetLength + 0) == data:skin.vars.e_snippetLength) ? (data:skin.vars.e_snippetLength + 0) : 155'
+                var='snippet_length'>
+                <b:eval
+                  expr='data:post.snippets.long snippet { length: data:snippet_length, links: false, linebreaks: false }' />
+              </b:with>
+            </p>
+          </b:if>
+        </div>
+      </div>
+    </article>
+  </b:loop>
+</b:includable>

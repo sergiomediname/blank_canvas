@@ -20,6 +20,50 @@
   padding-right: 1rem;
 }
 
+.has-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ratio {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--ratio-cover, 4/3);
+}
+.ratio img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.ratio--21\:9 {
+  --ratio-cover: 21/9;
+}
+.ratio--16\:9 {
+  --ratio-cover: 16/9;
+}
+.ratio--4\:3 {
+  --ratio-cover: 4/3;
+}
+.ratio--1\:1 {
+  --ratio-cover: 1/1;
+}
+.ratio--1\:2 {
+  --ratio-cover: 1/2;
+}
+.ratio--2\:3 {
+  --ratio-cover: 2/3;
+}
+.ratio--5\:7 {
+  --ratio-cover: 5/7;
+}
+
 html {
   font-size: var(--font-size);
 }
@@ -64,4 +108,16 @@ a {
 .menu__item--submenu:hover .menu__submenu {
   opacity: 1;
   visibility: visible;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
