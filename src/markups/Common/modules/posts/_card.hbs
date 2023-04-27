@@ -10,8 +10,8 @@
           <div expr:class='"card__thumb ratio" + " ratio--" + data:ratio'>
             <b:class name='has-image' />
             <a expr:href='data:post.url.canonical'>
-              <img expr:src="data:post.featuredImage" expr:alt="data:post.title.escaped"
-                expr:title="data:post.title.escaped" />
+              <b:include name='@image'
+                data='{title: data:post.title.escaped, src: data:post.featuredImage, resize: 400, ratio: data:skin.vars.e_ratio, params: "rw"}' />
             </a>
           </div>
         </b:with>

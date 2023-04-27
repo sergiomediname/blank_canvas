@@ -1,0 +1,24 @@
+<b:includable id='@image'>
+  <b:with value='(data:resize ? resizeImage(data:src, data:resize, data:ratio) : (data:src))' var='image'>
+    <b:tag expr:alt='data:title ?: data:messages.image' expr:title='data:title ?: data:messages.image' name='img'>
+      {{!-- Class image --}}
+      <b:class cond='data:class' expr:name='data:class' />
+      {{!-- Width and height --}}
+      <b:attr name='width' expr:value='data:width ?: data:image.width' />
+      <b:attr name='height' expr:value='data:height ?: data:image.height' />
+      {{!-- Loading attribute --}}
+      <b:attr name='loading' value='lazy' />
+      {{!-- Check if image is hosted on Google --}}
+      <b:with value='"blogger.googleusercontent.com/img/a/"' var='serve'>
+        {{!-- If srcset exists, generate the image tag with the first dimension --}}
+        {{!-- If host is Google, add additional parameters --}}
+        <b:attr name='src'
+          expr:value='(data:srcset ? resizeImage(data:image, data:srcset.first, data:ratio) : data:image) + ((data:image contains data:serve) and data:params ? ("-" + data:params) : "")' />
+        {{!-- If srcset exists, generate the srcset attribute --}}
+        <b:if cond='data:srcset'>
+          <b:attr name='srcset' expr:value='sourceSet(data:image, data:srcset, data:ratio)' />
+        </b:if>
+      </b:with>
+    </b:tag>
+  </b:with>
+</b:includable>

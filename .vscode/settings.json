@@ -16,6 +16,7 @@
   "conventionalCommits.scopes": [
     "widget:PageList",
     "header",
-    "widget:Blog"
+    "widget:Blog",
+    "functions:image"
   ]
 }
