@@ -1,18 +1,21 @@
-<b:includable id='post:view'>
-  {{!-- Post header --}}
-  <header class='post__header'>
-    <h1 class='post__title'>
+<b:includable id="post:view">
+  {{! Post header }}
+  <header class="post__header">
+    <h1 class="post__title">
       <data:post.title.escaped />
     </h1>
-    {{!-- Show only if the post is not a page --}}
-    <b:if cond='data:view.isPost'>
-      <b:include name='post:meta' data='{class: "post__meta"}' />
+    {{! Show only if the post is not a page }}
+    <b:if cond="data:view.isPost">
+      <b:include name="post:meta" data='{class: "post__meta"}' />
     </b:if>
   </header>
-  {{!-- Post body --}}
-  <section class='post__body typography'>
+  {{! Post body }}
+  <section class="post__body typography">
     <data:post.body />
   </section>
-  {{!-- Post footer --}}
-  <footer class='post__comment'></footer>
+  {{! Post footer }}
+  <footer class="post__comment">
+    <b:include name="comment:main"
+      data="{ depth: 2, texts: { delete: data:skin.vars.t_delete, reply: data:skin.vars.t_reply } }" />
+  </footer>
 </b:includable>

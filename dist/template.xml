@@ -59,7 +59,7 @@
   
       All styles
       =====================*/
-      :root{--main-color:$(keycolor);--font-family:$(font.body.family);--font-size:$(font.body.size);--default-font:"Roboto",sans-serif}*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}.container{width:100%;max-width:1300px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}.has-icon{display:inline-flex;align-items:center;gap:.5rem}.ratio{position:relative;display:block;width:100%;aspect-ratio:var(--ratio-cover,4/3)}.ratio img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-o-object-fit:cover;object-fit:cover;width:100%;height:100%}.ratio--21\:9{--ratio-cover:21/9}.ratio--16\:9{--ratio-cover:16/9}.ratio--4\:3{--ratio-cover:4/3}.ratio--1\:1{--ratio-cover:1/1}.ratio--1\:2{--ratio-cover:1/2}.ratio--2\:3{--ratio-cover:2/3}.ratio--5\:7{--ratio-cover:5/7}html{font-size:var(--font-size)}body{font-family:var(--font-family);font-size:1rem;line-height:1.5}a{color:var(--main-color)}.header #main-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.navbar ul{list-style:none}.menu{display:flex;align-items:center;gap:1.5rem}.menu__item{position:relative}.menu__link{text-decoration:none}.menu__submenu{position:absolute;opacity:0;visibility:hidden}.menu__item--submenu:hover .menu__submenu{opacity:1;visibility:visible}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.meta{display:flex;align-items:center;gap:1rem}
+      :root{--main-color:$(keycolor);--font-family:$(font.body.family);--font-size:$(font.body.size);--default-font:"Roboto",sans-serif}*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}iframe{display:block;max-width:100%;border:none}.container{width:100%;max-width:1300px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}.has-icon{display:inline-flex;align-items:center;gap:.5rem}.ratio{position:relative;display:block;width:100%;aspect-ratio:var(--ratio-cover,4/3)}.ratio img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-o-object-fit:cover;object-fit:cover;width:100%;height:100%}.ratio--21\:9{--ratio-cover:21/9}.ratio--16\:9{--ratio-cover:16/9}.ratio--4\:3{--ratio-cover:4/3}.ratio--1\:1{--ratio-cover:1/1}.ratio--1\:2{--ratio-cover:1/2}.ratio--2\:3{--ratio-cover:2/3}.ratio--5\:7{--ratio-cover:5/7}html{font-size:var(--font-size)}body{font-family:var(--font-family);font-size:1rem;line-height:1.5}a{color:var(--main-color)}.header #main-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.navbar ul{list-style:none}.menu{display:flex;align-items:center;gap:1.5rem}.menu__item{position:relative}.menu__link{text-decoration:none}.menu__submenu{position:absolute;opacity:0;visibility:hidden}.menu__item--submenu:hover .menu__submenu{opacity:1;visibility:visible}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.meta{display:flex;align-items:center;gap:1rem}.comments__content>*+*{margin-top:2rem}.comments .comment__header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}.comments .comment__time{display:block}.comments .comment__footer{margin-top:1rem}.comments-replies{margin-top:2rem;border-left:2px solid #ccc;padding-left:1.5rem}.comments-replies>*+*{margin-top:2rem}.comments__iframe iframe{width:100%}.comments__restore-button:not(.is-replying){display:none}
       
       /*
       Your custom styles
@@ -273,22 +273,38 @@
         <meta expr:content='data:cardType ?: "summary_large_image"' name='twitter:card' />
         <meta expr:content='data:view.description.escaped' name='twitter:description' />
       </b:includable>
-      <b:includable id='@image'>
-        <b:with value='(data:resize ? resizeImage(data:src, data:resize, data:ratio) : (data:src))' var='image'>
-          <b:tag expr:alt='data:title ?: data:messages.image' expr:title='data:title ?: data:messages.image' name='img'>
-            <b:class cond='data:class' expr:name='data:class' />
-            <b:attr name='width' expr:value='data:width ?: data:image.width' />
-            <b:attr name='height' expr:value='data:height ?: data:image.height' />
-            <b:attr name='loading' value='lazy' />
-            <b:with value='"blogger.googleusercontent.com/img/a/"' var='serve'>
-              <b:attr name='src'
+      <b:includable id="@image">
+        <b:with value="(data:resize ? resizeImage(data:src, data:resize, data:ratio) : (data:src))" var="image">
+          <b:tag expr:alt="data:title ?: data:messages.image" expr:title="data:title ?: data:messages.image" name="img">
+            <b:class cond="data:class" expr:name="data:class" />
+            <b:attr name="width" expr:value="data:width ?: data:image.width" />
+            <b:attr name="height" expr:value="data:height ?: data:image.height" />
+            <b:attr name="loading" value="lazy" />
+            <b:with value='"blogger.googleusercontent.com/img/a/"' var="serve">
+              <b:attr name="src"
                 expr:value='(data:srcset ? resizeImage(data:image, data:srcset.first, data:ratio) : data:image) + ((data:image contains data:serve) and data:params ? ("-" + data:params) : "")' />
-              <b:if cond='data:srcset'>
-                <b:attr name='srcset' expr:value='sourceSet(data:image, data:srcset, data:ratio)' />
+              <b:if cond="data:srcset">
+                <b:attr name="srcset" expr:value="sourceSet(data:image, data:srcset, data:ratio)" />
               </b:if>
             </b:with>
           </b:tag>
         </b:with>
+      </b:includable>
+      <b:includable id="@avatar">
+        <b:if cond="data:src">
+          <b:with value='data:default ?: "https://lh3.googleusercontent.com/a/default-user"' var="default">
+            <b:with value='resizeImage((data:src contains "/img/bl" ? data:default : data:src), (data:resize ?: 40), "1:1")'
+              var="avatar">
+              <b:tag expr:alt="data:alt ?: data:messages.image" expr:src="data:avatar" name="img">
+                <b:attr name="b:whitespace" value="remove" />
+                <b:attr name="width" expr:value="data:avatar.width" />
+                <b:attr name="height" expr:value="data:avatar.height" />
+                <b:attr name="loading" expr:value="data:loading" />
+                <b:class cond="data:class" expr:name="data:class" />
+              </b:tag>
+            </b:with>
+          </b:with>
+        </b:if>
       </b:includable>
       <b:includable id='s:assets'>
         <b:switch var='data:get'>
@@ -497,19 +513,170 @@
           </div>
         </div>
       </b:includable>
-      <b:includable id='post:view'>
-        <header class='post__header'>
-          <h1 class='post__title'>
+      <b:includable id="post:view">
+        <header class="post__header">
+          <h1 class="post__title">
             <data:post.title.escaped />
           </h1>
-          <b:if cond='data:view.isPost'>
-            <b:include name='post:meta' data='{class: "post__meta"}' />
+          <b:if cond="data:view.isPost">
+            <b:include name="post:meta" data='{class: "post__meta"}' />
           </b:if>
         </header>
-        <section class='post__body typography'>
+        <section class="post__body typography">
           <data:post.body />
         </section>
-        <footer class='post__comment'></footer>
+        <footer class="post__comment">
+          <b:include name="comment:main"
+            data="{ depth: 2, texts: { delete: data:skin.vars.t_delete, reply: data:skin.vars.t_reply } }" />
+        </footer>
+      </b:includable>
+      <b:includable id="comment:form">
+        <div class="comments__editor">
+          <b:if cond="data:post.allowNewComments">
+            <div id="comments__form">
+              <div class="comments__iframe">
+                <iframe id="comments-editor" expr:src='data:post.commentFormIframeSrc'
+                  height="66" />
+              </div>
+            </div>
+            <b:if cond="data:this.messages.blogComment">
+              <div class="comment-messages">
+                <data:this.messages.blogComment />
+              </div>
+            </b:if>
+            <textarea id="form-script">
+              <data:post.cmtfpIframe />
+            </textarea>
+            <button id="form-restore" class="comments__restore-button">
+              <b:eval expr="data:texts.restore ?: data:messages.postAComment" />
+            </button>
+            <script>
+              /*<![CDATA[*/
+              !function(){"use strict";var e=document.getElementById("comment-form"),r=document.getElementById("form-script"),t=document.getElementById("form-restore"),n=document.querySelectorAll("[data-parent-id]"),c="is-active",o="is-replying";function i(e){if(e){var r=e.value.replace(/<script.*?src='(.*?)'.*?><\/script>/,"$1");e.remove(),function(e){return new Promise((function(r,t){var n=document.createElement("script");n.src=e,n.onload=r,n.onerror=t,document.head.appendChild(n)}))}(r).then((function(){return BLOG_CMT_createIframe("https://www.blogger.com/rpc_relay.html")})).catch((function(e){return console.error(e)}))}}function a(e,r){if(e){var t=e.match(/<iframe[^>]*\s+src="([^"]*)"/i)[1];return{originalSrc:t,form:r?e.replace(t,r):e}}}!function(n){if(i(r),n){var m,l=e.innerHTML,s=a(l),d=s.originalSrc,u=s.form,f=document.createElement("div");f.id="reply-form",n.forEach((function(r){r.onclick=function(){var n=r.dataset.parentId,i=document.querySelector("#c".concat(n," .comments-replies")),s=document.getElementById("reply-form");if(m!==r){s?s.remove():(e.innerHTML="",t.classList.add(o)),m&&m.classList.remove(c);var u="".concat(d,"&parentID=").concat(n),p=a(l,u).form;r.classList.add(c),m=r,f.innerHTML=p,i.insertAdjacentElement("afterbegin",f)}}})),t&&(t.onclick=function(){if(m){var r=document.getElementById("reply-form");t.classList.remove(o),e.innerHTML=u,m.classList.remove(c),m=null,r.remove()}})}}(n)}();
+      
+              /*]]>*/
+            </script>
+            <b:else />
+            <div class="comment-alert">
+              <data:post.noNewCommentsText />
+            </div>
+          </b:if>
+        </div>
+      </b:includable>
+      <b:includable id="comment:header">
+        <div class="comment__header">
+          <div class="comment__avatar">
+            <b:include name="@avatar" data="{ src: data:comment.authorAvatarSrc, default: data:avatar }" />
+          </div>
+          <div class="comment__meta">
+            <b:tag class="comment__author" expr:name='data:comment.authorUrl ? "a" : "span"'>
+              <b:attr name="href" expr:value="data:comment.authorUrl" />
+              <data:comment.author />
+              <b:if cond="data:comment.extraIconClass">
+                <span class="comment__badge">
+                </span>
+              </b:if>
+            </b:tag>
+            <span class="comment__time">
+              <data:comment.timestamp />
+            </span>
+          </div>
+        </div>
+      </b:includable>
+      <b:includable id="comment:body">
+        <div class="comment__content">
+          <b:class cond="data:comment.isDeleted" name="comment-deleted" />
+          <data:comment.body />
+        </div>
+      </b:includable>
+      <b:includable id="comment:footer">
+        <div class="comment__footer">
+          <b:if cond="data:hasDepth">
+            <button class="comment__reply-button" expr:data-parent-id="data:comment.id">
+              <b:eval expr="data:texts.reply ?: data:messages.postAComment" />
+            </button>
+          </b:if>
+          <span expr:class="data:comment.adminClass">
+            <a class="comment__delete-button" expr:href="data:comment.deleteUrl">
+              <b:eval expr="data:texts.delete ?: data:messages.deleteComment" />
+            </a>
+          </span>
+        </div>
+      </b:includable>
+      <b:includable id="comment:pagination">
+        <div class="comments-paging">
+          <b:if cond="data:post.hasOlderLinks">
+            <a expr:href="data:post.oldestLinkUrl">
+              <data:messages.oldest />
+            </a>
+            <a expr:href="data:post.olderLinkUrl">
+              <data:messages.older />
+            </a>
+          </b:if>
+          <data:post.commentRangeText />
+          <b:if cond="data:post.hasNewerLinks">
+            <a expr:href="data:post.newerLinkUrl">
+              <data:messages.newer />
+            </a>
+            <a expr:href="data:post.newestLinkUrl">
+              <data:messages.newest />
+            </a>
+          </b:if>
+        </div>
+      </b:includable>
+      <b:includable id="comment:item" var="comment">
+        <b:with value="(data:currentDepth ?: -1) + 1" var="currentDepth">
+          <b:with value="(data:depth gt 0) and (data:currentDepth lt data:depth)" var="hasDepth">
+            <div class="comment" expr:id='"c" + data:comment.id'>
+              <div class="comment-block">
+                <b:include name="comment:header" />
+                <b:include name="comment:body" />
+                <b:include name="comment:footer" />
+                <b:if cond="data:hasDepth">
+                  <b:with value="data:post.comments where (c => c.inReplyTo == data:comment.id)" var="replies">
+                    <div class="comments-replies">
+                      <b:if cond="data:replies.any">
+                        <b:loop expr:reverse="data:reverse" values="data:replies" var="reply">
+                          <b:include name="comment:item" data="reply" />
+                        </b:loop>
+                      </b:if>
+                    </div>
+                  </b:with>
+                </b:if>
+              </div>
+            </div>
+          </b:with>
+        </b:with>
+      </b:includable>
+      <b:includable id="comment:build">
+        <b:with value="{ min: (data:depth ?: 1), max: 5 }" var="depths">
+          <b:with value="(data:depths.min >= data:depths.max) ? data:depths.max : data:depths.min" var="depth">
+            <b:with value="data:post.comments where (c => (data:depth == 0 ? c.id : !c.inReplyTo))" var="comments">
+              <div class="comments__content">
+                <b:if cond="data:comments.any">
+                  <b:loop expr:reverse="data:reverse" values="data:comments" var="comment">
+                    <b:include name="comment:item" data="comment" />
+                  </b:loop>
+                </b:if>
+              </div>
+            </b:with>
+          </b:with>
+        </b:with>
+      </b:includable>
+      <b:includable id="comment:main">
+        <b:if cond="not data:view.isPreview and data:post.allowComments">
+          <div class="comments-title">
+            <b:message name="messages.numberOfComments">
+              <b:param expr:value="data:post.numberOfComments" name="numComments" />
+            </b:message>
+          </div>
+          <div class="comments" id="comments">
+            <b:loop reverse="data:order" values='["build","form"]' var="include">
+              <b:include expr:name='"comment:" + data:include' />
+            </b:loop>
+            <b:include cond="data:post.commentPagingRequired" name="comment:pagination" />
+          </div>
+        </b:if>
       </b:includable>
       <b:includable id="widget:Header">
         <b:if cond='["top-header", "main-header", "bottom-header"] not contains data:widget.sectionId'>

@@ -74,3 +74,9 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+iframe {
+  display: block;
+  max-width: 100%;
+  border: none;
+}

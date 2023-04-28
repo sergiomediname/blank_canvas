@@ -7,7 +7,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[handlebars]": {
-    "editor.defaultFormatter": "vscode.html-language-features",
+    // "editor.defaultFormatter": "vscode.html-language-features",
     "files.insertFinalNewline": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
@@ -19,5 +19,5 @@
     "widget:Blog",
     "functions:image"
   ],
-  "editor.lineHeight": 2.1
+  "editor.lineHeight": 1.8
 }
