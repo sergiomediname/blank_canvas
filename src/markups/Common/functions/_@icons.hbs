@@ -1,0 +1,25 @@
+<b:includable id='@icons'>
+  <svg expr:class='"i i--" + data:icon' viewBox="0 0 24 24">
+    <b:switch var='data:icon'>
+      {{!-- chevron-down --}}
+      <b:case value='chevron-down' />
+      <path d="M16.293 9.297 12 13.59 7.707 9.297 6.293 10.71 12 16.418l5.707-5.707-1.414-1.414Z"></path>
+
+      {{!-- time-five --}}
+      <b:case value='time-five' />
+      <path
+        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8Z">
+      </path>
+      <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586V7Z"></path>
+
+      {{!-- comment --}}
+      <b:case value="comment" />
+      <path
+        d="M20 2H4c-1.103 0-2 .897-2 2v18l5.333-4H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2Zm0 14H6.667L4 18V4h16v12Z">
+      </path>
+
+      <b:default />
+      <p>no existe el icono</p>
+    </b:switch>
+  </svg>
+</b:includable>

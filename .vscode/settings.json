@@ -20,7 +20,8 @@
     "functions:image",
     "layout",
     "customization",
-    "b:skin"
+    "b:skin",
+    "icons"
   ],
   "editor.lineHeight": 1.8
 }

@@ -63,7 +63,7 @@
       All styles
       =====================*/
   
-      :root{--main-color:$(keycolor);--font-family:$(font.body.family);--font-size:$(font.body.size);--default-font:"Roboto",sans-serif;--width-container:$(width.container);--width-sidebar:$(width.sidebar);--space-primary:1rem}@media (min-width:768px){:root{--space-primary:$(spacing.primary)}}*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}iframe{display:block;max-width:100%;border:none}.container{width:100%;max-width:var(--width-container);margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}.has-icon{display:inline-flex;align-items:center;gap:.5rem}.ratio{position:relative;display:block;width:100%;aspect-ratio:var(--ratio-cover,4/3)}.ratio img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-o-object-fit:cover;object-fit:cover;width:100%;height:100%}.ratio--21\:9{--ratio-cover:21/9}.ratio--16\:9{--ratio-cover:16/9}.ratio--4\:3{--ratio-cover:4/3}.ratio--1\:1{--ratio-cover:1/1}.ratio--1\:2{--ratio-cover:1/2}.ratio--2\:3{--ratio-cover:2/3}.ratio--5\:7{--ratio-cover:5/7}html{font-size:var(--font-size)}body{font-family:var(--font-family);font-size:1rem;line-height:1.5}a{color:var(--main-color)}.header #main-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.main .wrap{display:grid;grid-template-areas:"content" "sidebar";grid-template-columns:100%;gap:var(--space-primary)}@media (min-width:992px){.main .wrap{grid-template-areas:"content sidebar";grid-template-columns:minmax(0,1fr) var(--width-sidebar,330px)}}.main #content{grid-area:content}.main #sidebar{grid-area:sidebar}.navbar ul{list-style:none}.menu{display:flex;align-items:center;gap:1.5rem}.menu__item{position:relative}.menu__link{text-decoration:none}.menu__submenu{position:absolute;opacity:0;visibility:hidden}.menu__item--submenu:hover .menu__submenu{opacity:1;visibility:visible}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-primary)}.meta{display:flex;align-items:center;gap:1rem}.comments__content>*+*{margin-top:2rem}.comments .comment__header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}.comments .comment__time{display:block}.comments .comment__footer{margin-top:1rem}.comments-replies{margin-top:2rem;border-left:2px solid #ccc;padding-left:1.5rem}.comments-replies>*+*{margin-top:2rem}.comments__iframe iframe{width:100%}.comments__restore-button:not(.is-replying){display:none}
+      :root{--main-color:$(keycolor);--font-family:$(font.body.family);--font-size:$(font.body.size);--default-font:"Roboto",sans-serif;--width-container:$(width.container);--width-sidebar:$(width.sidebar);--space-primary:1rem}@media (min-width:768px){:root{--space-primary:$(spacing.primary)}}*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}iframe{display:block;max-width:100%;border:none}.container{width:100%;max-width:var(--width-container);margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}.has-icon{display:inline-flex;align-items:center;gap:.5rem}.ratio{position:relative;display:block;width:100%;aspect-ratio:var(--ratio-cover,4/3)}.ratio img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-o-object-fit:cover;object-fit:cover;width:100%;height:100%}.ratio--21\:9{--ratio-cover:21/9}.ratio--16\:9{--ratio-cover:16/9}.ratio--4\:3{--ratio-cover:4/3}.ratio--1\:1{--ratio-cover:1/1}.ratio--1\:2{--ratio-cover:1/2}.ratio--2\:3{--ratio-cover:2/3}.ratio--5\:7{--ratio-cover:5/7}html{font-size:var(--font-size)}body{font-family:var(--font-family);font-size:1rem;line-height:1.5}a{color:var(--main-color)}.header #main-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.main .wrap{display:grid;grid-template-areas:"content" "sidebar";grid-template-columns:100%;gap:var(--space-primary)}@media (min-width:992px){.main .wrap{grid-template-areas:"content sidebar";grid-template-columns:minmax(0,1fr) var(--width-sidebar,330px)}}.main #content{grid-area:content}.main #sidebar{grid-area:sidebar}.navbar ul{list-style:none}.menu{display:flex;align-items:center;gap:1.5rem}.menu__item{position:relative}.menu__link{text-decoration:none}.menu__submenu{position:absolute;opacity:0;visibility:hidden}.menu__item--submenu:hover .menu__submenu{opacity:1;visibility:visible}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-primary)}.meta{display:flex;align-items:center;gap:1rem}.comments__content>*+*{margin-top:2rem}.comments .comment__header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}.comments .comment__time{display:block}.comments .comment__footer{margin-top:1rem}.comments-replies{margin-top:2rem;border-left:2px solid #ccc;padding-left:1.5rem}.comments-replies>*+*{margin-top:2rem}.comments__iframe iframe{width:100%}.comments__restore-button:not(.is-replying){display:none}.i{width:var(--svg-size,18px);height:var(--svg-size,18px);fill:currentColor}
       /*
       Your custom styles
       =====================*/
@@ -309,6 +309,28 @@
           </b:with>
         </b:if>
       </b:includable>
+      <b:includable id='@icons'>
+        <svg expr:class='"i i--" + data:icon' viewBox="0 0 24 24">
+          <b:switch var='data:icon'>
+            <b:case value='chevron-down' />
+            <path d="M16.293 9.297 12 13.59 7.707 9.297 6.293 10.71 12 16.418l5.707-5.707-1.414-1.414Z"></path>
+      
+            <b:case value='time-five' />
+            <path
+              d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8Z">
+            </path>
+            <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586V7Z"></path>
+      
+            <b:case value="comment" />
+            <path
+              d="M20 2H4c-1.103 0-2 .897-2 2v18l5.333-4H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2Zm0 14H6.667L4 18V4h16v12Z">
+            </path>
+      
+            <b:default />
+            <p>no existe el icono</p>
+          </b:switch>
+        </svg>
+      </b:includable>
       <b:includable id='s:assets'>
         <b:switch var='data:get'>
           <b:case value='font' />
@@ -505,13 +527,15 @@
               expr:title='data:post.author.name' width='25' height='25' />
           </a>
       
-          <div class='meta-item'>
+          <div class='meta-item has-icon'>
+            <b:include data='{icon: "time-five"}' name='@icons' />
             <time expr:datetime="data:post.date.iso8601">
               <data:post.date />
             </time>
           </div>
       
-          <div class="meta-item">
+          <div class="meta-item has-icon">
+            <b:include data='{icon: "comment"}' name='@icons' />
             <data:post.numberOfComments />
           </div>
         </div>

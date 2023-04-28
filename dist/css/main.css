@@ -252,3 +252,9 @@ a {
 .comments__restore-button:not(.is-replying) {
   display: none;
 }
+
+.i {
+  width: var(--svg-size, 18px);
+  height: var(--svg-size, 18px);
+  fill: currentColor;
+}

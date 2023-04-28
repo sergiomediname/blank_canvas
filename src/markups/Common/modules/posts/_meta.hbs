@@ -8,13 +8,15 @@
         expr:title='data:post.author.name' width='25' height='25' />
     </a>
 
-    <div class='meta-item'>
+    <div class='meta-item has-icon'>
+      <b:include data='{icon: "time-five"}' name='@icons' />
       <time expr:datetime="data:post.date.iso8601">
         <data:post.date />
       </time>
     </div>
 
-    <div class="meta-item">
+    <div class="meta-item has-icon">
+      <b:include data='{icon: "comment"}' name='@icons' />
       <data:post.numberOfComments />
     </div>
   </div>
