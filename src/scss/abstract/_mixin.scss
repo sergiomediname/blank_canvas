@@ -1,0 +1,23 @@
+@use "variables" as var;
+
+@mixin media-querie($size) {
+  @if $size == "wide" {
+    $size: var.$xxl;
+  }
+  @if $size == "desktop" {
+    $size: var.$xl;
+  }
+  @if $size == "laptop" {
+    $size: var.$lg;
+  }
+  @if $size == "tablet" {
+    $size: var.$md;
+  }
+  @if $size == "mobile" {
+    $size: var.$sm;
+  }
+
+  @media (min-width: $size) {
+    @content;
+  }
+}

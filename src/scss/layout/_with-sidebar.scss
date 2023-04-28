@@ -1,0 +1,20 @@
+@use "./../abstract/mixin" as mixin;
+
+.main {
+  .wrap {
+    display: grid;
+    grid-template-areas: "content" "sidebar";
+    grid-template-columns: 100%;
+    gap: 2rem;
+    @include mixin.media-querie("laptop") {
+      grid-template-areas: "content sidebar";
+      grid-template-columns: minmax(0, 1fr) var(--width-sidebar, 330px);
+    }
+  }
+  #content {
+    grid-area: content;
+  }
+  #sidebar {
+    grid-area: sidebar;
+  }
+}

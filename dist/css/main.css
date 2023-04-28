@@ -3,6 +3,8 @@
   --font-family: $(font.body.family);
   --font-size: $(font.body.size);
   --default-font: "Roboto", sans-serif;
+  --width-container: $(width.container);
+  --width-sidebar: $(width.sidebar);
 }
 
 /* Box sizing rules */
@@ -87,7 +89,7 @@ iframe {
 
 .container {
   width: 100%;
-  max-width: 1300px;
+  max-width: var(--width-container);
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -157,6 +159,25 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+.main .wrap {
+  display: grid;
+  grid-template-areas: "content" "sidebar";
+  grid-template-columns: 100%;
+  gap: 2rem;
+}
+@media (min-width: 992px) {
+  .main .wrap {
+    grid-template-areas: "content sidebar";
+    grid-template-columns: minmax(0, 1fr) var(--width-sidebar, 330px);
+  }
+}
+.main #content {
+  grid-area: content;
+}
+.main #sidebar {
+  grid-area: sidebar;
 }
 
 .navbar ul {

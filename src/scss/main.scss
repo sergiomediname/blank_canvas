@@ -1,4 +1,5 @@
 // Abstract
+@forward "abstract/variables";
 @forward "abstract/mixin";
 
 // Theme
@@ -11,6 +12,7 @@
 
 // Layout
 @forward "layout/header";
+@forward "layout/with-sidebar";
 
 // Components
 @forward "components/navbar";
