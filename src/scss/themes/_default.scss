@@ -1,3 +1,5 @@
+@use "../abstract/mixin" as mixin;
+
 :root {
   --main-color: $(keycolor);
   --font-family: $(font.body.family);
@@ -5,4 +7,8 @@
   --default-font: "Roboto", sans-serif;
   --width-container: $(width.container);
   --width-sidebar: $(width.sidebar);
+  --space-primary: 1rem;
+  @include mixin.media-querie("tablet") {
+    --space-primary: $(spacing.primary);
+  }
 }

@@ -5,6 +5,12 @@
   --default-font: "Roboto", sans-serif;
   --width-container: $(width.container);
   --width-sidebar: $(width.sidebar);
+  --space-primary: 1rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --space-primary: $(spacing.primary);
+  }
 }
 
 /* Box sizing rules */
@@ -165,7 +171,7 @@ a {
   display: grid;
   grid-template-areas: "content" "sidebar";
   grid-template-columns: 100%;
-  gap: 2rem;
+  gap: var(--space-primary);
 }
 @media (min-width: 992px) {
   .main .wrap {
@@ -208,7 +214,7 @@ a {
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: var(--space-primary);
 }
 
 .meta {

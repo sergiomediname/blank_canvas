@@ -5,7 +5,7 @@
     display: grid;
     grid-template-areas: "content" "sidebar";
     grid-template-columns: 100%;
-    gap: 2rem;
+    gap: var(--space-primary);
     @include mixin.media-querie("laptop") {
       grid-template-areas: "content sidebar";
       grid-template-columns: minmax(0, 1fr) var(--width-sidebar, 330px);
