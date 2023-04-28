@@ -12,6 +12,13 @@ import sass from 'sass'
 import CleanCSS from 'clean-css'
 import autoprefixer from 'autoprefixer'
 import postcss from 'postcss'
+
+import { rollup } from 'rollup'
+import terser from '@rollup/plugin-terser'
+import commonjs from '@rollup/plugin-commonjs'
+import { babel } from '@rollup/plugin-babel'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+
 import clipboard from 'clipboardy'
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
@@ -109,6 +116,54 @@ function compileSass () {
   })
 }
 
+// Task to compile Handlebars templates
+const compileJS = async () => {
+  try {
+    const output = path.join(__dirname, DIST_DIR, 'js')
+    const files = glob.sync(`${SOURCE_DIR}/**/!(_)*.js`)
+
+    if (files.length === 0) {
+      return
+    }
+
+    // Iterate over the files found and compile each one separately
+    for (const file of files) {
+      const bundle = await rollup({
+        input: file,
+        plugins: [
+          nodeResolve(),
+          commonjs(),
+          babel({
+            babelHelpers: 'bundled',
+            presets: ['@babel/preset-env']
+          })
+        ]
+      })
+
+      const fileName = path.basename(file, path.extname(file))
+      const outputFile = path.join(output, `${fileName}.js`)
+
+      // Generate the output file without minifying it
+      await bundle.write({
+        file: outputFile,
+        format: 'iife'
+      })
+
+      // Generate the output file minified
+      const minifiedOutputFile = path.join(output, `${fileName}.min.js`)
+      await bundle.write({
+        file: minifiedOutputFile,
+        format: 'iife',
+        plugins: [
+          terser()
+        ]
+      })
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 // Handlebars helpers
 Handlebars.registerHelper('asset', function readFileHelper (filePath) {
   const fullPath = `./dist/${filePath}`
@@ -161,9 +216,10 @@ chokidar.watch(SOURCE_DIR, {
   const extension = path.extname(filePath).toLowerCase()
 
   switch (extension) {
-    // case '.js':
-    //   compileJS()
-    //   break
+    case '.js':
+      compileJS()
+      // compileHandlebars(SOURCE_DIR)
+      break
     case '.scss':
     case '.sass':
       compileSass()
