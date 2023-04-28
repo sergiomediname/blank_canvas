@@ -18,7 +18,8 @@
     "header",
     "widget:Blog",
     "functions:image",
-    "layout"
+    "layout",
+    "customization"
   ],
   "editor.lineHeight": 1.8
 }

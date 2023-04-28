@@ -1,5 +1,5 @@
 <header class="header">
-  <b:if cond='["true", "false"] contains data:skin.vars.s_top_header ? data:skin.vars.s_top_header : "false"'>
+  <b:if cond='["true", "false"] contains data:skin.vars.s_topHeader ? data:skin.vars.s_topHeader : false'>
     <div class="top-header">
       <div class="container">
         <div class="wrap">
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <b:if cond='["true", "false"] contains data:skin.vars.s_bottom_header ? data:skin.vars.s_bottom_header : "false"'>
+  <b:if cond='["true", "false"] contains data:skin.vars.s_bottomHeader ? data:skin.vars.s_bottomHeader : false'>
     <div class="bottom-header">
       <div class="container">
         <div class="wrap">
