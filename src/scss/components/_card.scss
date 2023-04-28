@@ -3,10 +3,3 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
-.card {
-  &__meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-}

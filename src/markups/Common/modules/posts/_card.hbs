@@ -27,9 +27,7 @@
           </h2>
 
           <b:if cond='[true, false] contains data:skin.vars.e_meta ? data:skin.vars.e_meta : true'>
-            <div class='card__meta'>
-              <b:include name='post:meta' />
-            </div>
+            <b:include name='post:meta' data='{class: "card__meta"}' />
           </b:if>
 
           {{!-- If snippet is not empty, display it --}}

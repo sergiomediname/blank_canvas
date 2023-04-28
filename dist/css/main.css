@@ -184,7 +184,7 @@ a {
   gap: 1rem;
 }
 
-.card__meta {
+.meta {
   display: flex;
   align-items: center;
   gap: 1rem;

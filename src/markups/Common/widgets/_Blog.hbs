@@ -3,7 +3,9 @@
     {{!-- Show in Post or Page --}}
     <b:if cond='data:view.isSingleItem'>
       <article class="post">
-        <p>Single post/page</p>
+        <b:with value='data:posts.first' var='post'>
+          <b:include name='post:view' />
+        </b:with>
       </article>
       {{!-- Show in Home or Archive --}}
       <b:else />

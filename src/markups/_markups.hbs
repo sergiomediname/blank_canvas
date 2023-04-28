@@ -20,6 +20,7 @@
     {{> assets}}
     {{> card}}
     {{> meta}}
+    {{> view}}
     {{!-- widgets (Read-only excluded: Attribution, Followers) --}}
     {{> Header}}
     {{> HTML}}
@@ -42,6 +43,14 @@
     </b:includable>
   </b:defaultmarkup>
   {{!-- AdSense, Header and Blog widgets not require a wrapper or a title --}}
+  <b:defaultmarkup type='AdSense,Header,Blog'>
+    <b:includable id='main' var='this'>
+      <b:include name='@attr' data='{["id"],["data-version"]}' />
+      <b:include expr:name='"widget:" + data:widget.type' />
+    </b:includable>
+    <b:includable id='content' />
+  </b:defaultmarkup>
+  {{!-- Unnecessary or unused widgets --}}
   <b:defaultmarkup type='BloggerButton,BlogList,Feed,ReportAbuse,Stats,Translate,Wikipedia'>
     <b:includable id='main' />
     <b:includable id='content' />

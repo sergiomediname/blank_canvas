@@ -1,17 +1,21 @@
 <b:includable id='post:meta'>
-  <a href="#" class='meta-item has-icon'>
-    <img class='lazy img-change object-contain w-full h-full inset-0'
-      expr:src='data:post.author.authorPhoto.image resizeImage 50' expr:alt='data:post.author.name'
-      expr:title='data:post.author.name' width='25' height='25' />
-  </a>
+  <div class='meta'>
+    <b:class expr:name='data:class' />
 
-  <div class='meta-item'>
-    <time expr:datetime="data:post.date.iso8601">
-      <data:post.date />
-    </time>
-  </div>
+    <a href="#" class='meta-item has-icon'>
+      <img class='lazy img-change object-contain w-full h-full inset-0'
+        expr:src='data:post.author.authorPhoto.image resizeImage 50' expr:alt='data:post.author.name'
+        expr:title='data:post.author.name' width='25' height='25' />
+    </a>
 
-  <div class="meta-item">
-    <data:post.numberOfComments />
+    <div class='meta-item'>
+      <time expr:datetime="data:post.date.iso8601">
+        <data:post.date />
+      </time>
+    </div>
+
+    <div class="meta-item">
+      <data:post.numberOfComments />
+    </div>
   </div>
 </b:includable>
