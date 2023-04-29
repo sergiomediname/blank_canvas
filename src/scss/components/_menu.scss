@@ -38,5 +38,9 @@ ul {
     display: inline-flex;
     text-decoration: none;
     padding: 1rem;
+    color: var(--menu-link);
+    &:hover {
+      color: var(--main-color);
+    }
   }
 }

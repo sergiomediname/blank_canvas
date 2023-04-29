@@ -23,10 +23,10 @@
       Settings
       =====================
       # Show top header
-      <Variable name="s.topHeader" description="s.topHeader" type="string" value="false"/>
+      <Variable name="s.topHeader" description="s.topHeader" type="string" value="true"/>
       
       # Show bottom header
-      <Variable name="s.bottomHeader" description="s.bottomHeader" type="string" value="false"/>
+      <Variable name="s.bottomHeader" description="s.bottomHeader" type="string" value="true"/>
   
       Card
       =====================
@@ -54,16 +54,28 @@
         <Variable name="font.body" description="Content font" type="font" value="normal normal 16px var(--default-font)" default="normal normal 16px var(--default-font)"/>
       </Group>
       <Group description="Widths">
-        <Variable name="width.container" description="Content width" type="length" value="1300px" max="2000px" min="100px" default="1300px"/>
-        <Variable name="width.sidebar" description="Sidebar width" type="length" value="330px" max="2000px" min="100px" default="330px"/>
+        <Variable name="width.container" description="Content width" type="length" value="1200px" max="2000px" min="100px" default="1200px"/>
+        <Variable name="width.sidebar" description="Sidebar width" type="length" value="340px" max="2000px" min="100px" default="340px"/>
         <Variable name="width.post" description="Post width (stream)" type="length" value="1300px" max="2000px" min="100px" default="1300px"/>
         <Variable name="spacing.primary" description="Primary spacing" type="length" value="30px" max="50px" min="0px" default="30px"/>
+      </Group>
+      <Group description="Light Mode">
+        <Variable name="light.body.bg" description="Body background color" type="color" value="#ffffff" default="#ffffff"/>
+        <Variable name="light.text.color" description="Content color" type="color" value="#000000" default="#000000"/>
+        <Variable name="light.main.header.bg" description="Header Background" type="color" value="#ffffff" default="#ffffff"/>
+        <Variable name="light.top.header.bg" description="Background color (Top)" type="color" value="#222222" default="#222222"/>
+        <Variable name="light.top.header.color" description="Top Header color" type="color" value="#ffffff" default="#ffffff"/>
+        <Variable name="light.bottom.header.bg" description="Background color (Bottom)" type="color" value="#f2f2f2" default="#f2f2f2"/>
+        <Variable name="light.bottom.header.color" description="Bottom Header color" type="color" value="#222222" default="#222222"/>
+        <Variable name="light.logo.title" description="Blog Title Color" type="color" value="#000000" default="#000000"/>
+        <Variable name="light.logo.subtitle" description="Blog Description Color" type="color" value="#222222" default="#222222"/>
+        <Variable name="light.menu.color" description="Nav Color" type="color" value="#222222" default="#222222"/>
       </Group>
   
       All styles
       =====================*/
   
-      :root{--main-color:$(keycolor);--font-family:$(font.body.family);--font-size:$(font.body.size);--default-font:"Roboto",sans-serif;--width-container:$(width.container);--width-sidebar:$(width.sidebar);--space-primary:1rem}@media (min-width:768px){:root{--space-primary:$(spacing.primary)}}*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}iframe{display:block;max-width:100%;border:none}.container{width:100%;max-width:var(--width-container);margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}.has-icon{display:inline-flex;align-items:center;gap:.5rem}.ratio{position:relative;display:block;width:100%;aspect-ratio:var(--ratio-cover,4/3)}.ratio img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-o-object-fit:cover;object-fit:cover;width:100%;height:100%}.ratio--21\:9{--ratio-cover:21/9}.ratio--16\:9{--ratio-cover:16/9}.ratio--4\:3{--ratio-cover:4/3}.ratio--1\:1{--ratio-cover:1/1}.ratio--1\:2{--ratio-cover:1/2}.ratio--2\:3{--ratio-cover:2/3}.ratio--5\:7{--ratio-cover:5/7}html{font-size:var(--font-size)}body{font-family:var(--font-family);font-size:1rem;line-height:1.5}a{color:var(--main-color)}.header #main-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.main .wrap{display:grid;grid-template-areas:"content" "sidebar";grid-template-columns:100%;gap:var(--space-primary)}@media (min-width:992px){.main .wrap{grid-template-areas:"content sidebar";grid-template-columns:minmax(0,1fr) var(--width-sidebar,330px)}}.main #content{grid-area:content}.main #sidebar{grid-area:sidebar}.navbar ul{list-style:none}ul{margin:0;padding:0}@media (min-width:992px){.pages--header .offcanvas-switch{display:none}}.menu{display:flex}@media (min-width:992px){.menu{align-items:center}}@media (max-width:991px){.menu{position:fixed;top:0;right:100%;bottom:0;min-width:330px;background-color:#fff;flex-direction:column;transform:translateX(var(--menu-transform,0));z-index:50;transition:transform ease .3s}}.menu__item{position:relative}.menu__link{display:inline-flex;text-decoration:none;padding:1rem}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-primary)}.meta{display:flex;align-items:center;gap:1rem}.comments__content>*+*{margin-top:2rem}.comments .comment__header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}.comments .comment__time{display:block}.comments .comment__footer{margin-top:1rem}.comments-replies{margin-top:2rem;border-left:2px solid #ccc;padding-left:1.5rem}.comments-replies>*+*{margin-top:2rem}.comments__iframe iframe{width:100%}.comments__restore-button:not(.is-replying){display:none}.i{width:var(--svg-size,18px);height:var(--svg-size,18px);fill:currentColor}input#show_menu:checked~:where(.pages--header){--menu-transform:100%;--switch-overlay:1}.offcanvas-switch{cursor:pointer}.offcanvas-switch::before{content:"";position:fixed;inset:0;background-color:rgba(0,0,0,.5);cursor:default;pointer-events:var(--switch-overlay,none);z-index:5;transition:opacity var(--transition-config, .3s);opacity:var(--switch-overlay, 0)}.offcanvas-control{display:none}
+      :root{--main-color:$(keycolor);--font-family:$(font.body.family);--font-size:$(font.body.size);--default-font:"Roboto",sans-serif;--width-container:$(width.container);--width-sidebar:$(width.sidebar);--space-primary:1rem}@media (min-width:768px){:root{--space-primary:$(spacing.primary)}}:root{--body-bg:$(light.body.bg);--text-color:$(light.text.color);--main-header-bg:$(light.main.header.bg);--top-header-bg:$(light.top.header.bg);--bottom-header-bg:$(light.bottom.header.bg);--top-header-color:$(light.top.header.color);--bottom-header-color:$(light.bottom.header.color);--logo-title:$(light.logo.title);--logo-subtitle:$(light.logo.subtitle);--menu-link:$(light.menu.color)}*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}iframe{display:block;max-width:100%;border:none}.container{width:100%;max-width:var(--width-container);margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}.has-icon{display:inline-flex;align-items:center;gap:.5rem}.ratio{position:relative;display:block;width:100%;aspect-ratio:var(--ratio-cover,4/3)}.ratio img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-o-object-fit:cover;object-fit:cover;width:100%;height:100%}.ratio--21\:9{--ratio-cover:21/9}.ratio--16\:9{--ratio-cover:16/9}.ratio--4\:3{--ratio-cover:4/3}.ratio--1\:1{--ratio-cover:1/1}.ratio--1\:2{--ratio-cover:1/2}.ratio--2\:3{--ratio-cover:2/3}.ratio--5\:7{--ratio-cover:5/7}html{font-size:var(--font-size)}body{background-color:var(--body-bg);color:var(--text-color);font-family:var(--font-family);font-size:1rem;line-height:1.5}a{color:var(--main-color)}.header #main-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.header .top-header{background-color:var(--top-header-bg);color:var(--top-header-color);padding:10px 0}.header .main-header{background-color:var(--main-header-bg)}.header .bottom-header{padding:10px 0;background-color:var(--bottom-header-bg);color:var(--bottom-header-color)}.main .wrap{display:grid;grid-template-areas:"content" "sidebar";grid-template-columns:100%;gap:var(--space-primary)}@media (min-width:992px){.main .wrap{grid-template-areas:"content sidebar";grid-template-columns:minmax(0,1fr) var(--width-sidebar,330px)}}.main #content{grid-area:content}.main #sidebar{grid-area:sidebar}.navbar ul{list-style:none}ul{margin:0;padding:0}@media (min-width:992px){.pages--header .offcanvas-switch{display:none}}.menu{display:flex}@media (min-width:992px){.menu{align-items:center}}@media (max-width:991px){.menu{position:fixed;top:0;right:100%;bottom:0;min-width:330px;background-color:#fff;flex-direction:column;transform:translateX(var(--menu-transform,0));z-index:50;transition:transform ease .3s}}.menu__item{position:relative}.menu__link{display:inline-flex;text-decoration:none;padding:1rem;color:var(--menu-link)}.menu__link:hover{color:var(--main-color)}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-primary)}.meta{display:flex;align-items:center;gap:1rem}.comments__content>*+*{margin-top:2rem}.comments .comment__header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}.comments .comment__time{display:block}.comments .comment__footer{margin-top:1rem}.comments-replies{margin-top:2rem;border-left:2px solid #ccc;padding-left:1.5rem}.comments-replies>*+*{margin-top:2rem}.comments__iframe iframe{width:100%}.comments__restore-button:not(.is-replying){display:none}.i{width:var(--svg-size,18px);height:var(--svg-size,18px);fill:currentColor}input#show_menu:checked~:where(.pages--header){--menu-transform:100%;--switch-overlay:1}.offcanvas-switch{cursor:pointer}.offcanvas-switch::before{content:"";position:fixed;inset:0;background-color:rgba(0,0,0,.5);cursor:default;pointer-events:var(--switch-overlay,none);z-index:5;transition:opacity var(--transition-config, .3s);opacity:var(--switch-overlay, 0)}.offcanvas-control{display:none}.Header .header-logo__title{color:var(--logo-title)}.Header .header-logo__title a{color:inherit}.Header .header-logo__subtitle{color:var(--logo-subtitle)}
       /*
       Your custom styles
       =====================*/
@@ -831,6 +843,7 @@
           <div class="container">
             <div class="wrap">
               <b:section id='top-header'>
+                <b:widget id='HTML222' type='HTML' title='Header top' locked='false' version='2' />
               </b:section>
             </div>
           </div>
@@ -853,6 +866,7 @@
           <div class="container">
             <div class="wrap">
               <b:section id='bottom-header'>
+                <b:widget id='HTML111' type='HTML' title='Header top' locked='false' version='2' />
               </b:section>
             </div>
           </div>

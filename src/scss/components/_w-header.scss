@@ -1,0 +1,13 @@
+.Header {
+  .header-logo {
+    &__title {
+      color: var(--logo-title);
+      a {
+        color: inherit;
+      }
+    }
+    &__subtitle {
+      color: var(--logo-subtitle);
+    }
+  }
+}

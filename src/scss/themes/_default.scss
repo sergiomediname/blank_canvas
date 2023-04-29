@@ -12,3 +12,21 @@
     --space-primary: $(spacing.primary);
   }
 }
+
+:root {
+  // Global
+  --body-bg: $(light.body.bg);
+  --text-color: $(light.text.color);
+  // Header
+  --main-header-bg: $(light.main.header.bg);
+  --top-header-bg: $(light.top.header.bg);
+  --bottom-header-bg: $(light.bottom.header.bg);
+
+  --top-header-color: $(light.top.header.color);
+  --bottom-header-color: $(light.bottom.header.color);
+  // Logotipo
+  --logo-title: $(light.logo.title);
+  --logo-subtitle: $(light.logo.subtitle);
+  // Menu
+  --menu-link: $(light.menu.color);
+}

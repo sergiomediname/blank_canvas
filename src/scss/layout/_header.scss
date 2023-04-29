@@ -5,4 +5,17 @@
     align-items: center;
     justify-content: space-between;
   }
+  .top-header {
+    background-color: var(--top-header-bg);
+    color: var(--top-header-color);
+    padding: 10px 0;
+  }
+  .main-header {
+    background-color: var(--main-header-bg);
+  }
+  .bottom-header {
+    padding: 10px 0;
+    background-color: var(--bottom-header-bg);
+    color: var(--bottom-header-color);
+  }
 }
