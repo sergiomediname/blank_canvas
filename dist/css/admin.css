@@ -158,3 +158,29 @@ body#layout div.section .dr_active {
 body#layout div.section .widget.el_active .editlink.icon {
   display: none;
 }
+body#layout .tools {
+  display: flex;
+}
+body#layout .tools #tools {
+  background-color: #eaeaf8;
+  border: 0;
+  margin-right: 0;
+  border-radius: 5px;
+}
+body#layout .tools #tools h4 {
+  display: none;
+}
+body#layout .tools #tools .widget-content {
+  padding: 20px;
+  background-size: 24px;
+  border: 0;
+  background-image: none;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body#layout .tools #tools .widget .layout-widget-state, body#layout .tools #tools .widget .layout-title {
+  display: none;
+}
+body#layout .tools #tools .widget.Image .widget-content {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/1x/image_grey600_24dp.png");
+}

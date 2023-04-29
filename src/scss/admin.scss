@@ -34,6 +34,7 @@ $icon-edit: gstatic-icon("mode_edit");
 $icon-visible: gstatic-icon("visibility");
 $icon-invisible: gstatic-icon("visibility_off");
 $icon-lock: gstatic-icon("lock");
+$icon-image: gstatic-icon("image");
 
 // Styles
 $layout-bg: #f4f4f5;
@@ -240,6 +241,42 @@ body#layout {
       // (fix) Evitamos activar accidentalmente la edicion al arrastrar
       .editlink.icon {
         display: none;
+      }
+    }
+  }
+
+  // Tools
+  .tools {
+    display: flex;
+    #tools {
+      background-color: #eaeaf8;
+      border: 0;
+      margin-right: 0;
+      border-radius: 5px;
+      h4 {
+        display: none;
+      }
+      .widget {
+        &-content {
+          padding: 20px;
+          background-size: 24px;
+          border: 0;
+          background-image: none;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        .layout {
+          &-widget-state,
+          &-title {
+            display: none;
+          }
+        }
+        // Image
+        &.Image {
+          .widget-content {
+            background-image: url($icon-image);
+          }
+        }
       }
     }
   }
