@@ -190,25 +190,46 @@ a {
   list-style: none;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  .pages--header .offcanvas-switch {
+    display: none;
+  }
+}
+
 .menu {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+}
+@media (min-width: 992px) {
+  .menu {
+    align-items: center;
+  }
+}
+@media (max-width: 991px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    min-width: 330px;
+    background-color: #ffffff;
+    flex-direction: column;
+    transform: translateX(var(--menu-transform, 0));
+    z-index: 50;
+    transition: transform ease 0.3s;
+  }
 }
 .menu__item {
   position: relative;
 }
 .menu__link {
+  display: inline-flex;
   text-decoration: none;
-}
-.menu__submenu {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-}
-.menu__item--submenu:hover .menu__submenu {
-  opacity: 1;
-  visibility: visible;
+  padding: 1rem;
 }
 
 .cards {
@@ -257,4 +278,27 @@ a {
   width: var(--svg-size, 18px);
   height: var(--svg-size, 18px);
   fill: currentColor;
+}
+
+input#show_menu:checked ~ :where(.pages--header) {
+  --menu-transform: 100%;
+  --switch-overlay: 1;
+}
+
+.offcanvas-switch {
+  cursor: pointer;
+}
+.offcanvas-switch::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: default;
+  pointer-events: var(--switch-overlay, none);
+  z-index: 5;
+  transition: opacity var(--transition-config, 0.3s);
+  opacity: var(--switch-overlay, 0);
+}
+.offcanvas-control {
+  display: none;
 }

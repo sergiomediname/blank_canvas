@@ -1,6 +1,6 @@
 @use "variables" as var;
 
-@mixin media-querie($size) {
+@mixin media-querie($size, $media: "min") {
   @if $size == "wide" {
     $size: var.$xxl;
   }
@@ -16,8 +16,12 @@
   @if $size == "mobile" {
     $size: var.$sm;
   }
+  // Decrement 1px if "media" value is equal to "max"
+  @if $media == "max" {
+    $size: $size - 1px;
+  }
 
-  @media (min-width: $size) {
+  @media (#{$media}-width: $size) {
     @content;
   }
 }

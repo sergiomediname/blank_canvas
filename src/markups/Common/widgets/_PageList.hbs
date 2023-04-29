@@ -1,8 +1,17 @@
 <b:includable id='widget:PageList'>
-  <div class='pages'>
-    {{!-- If the widget is in the header section, add the class 'pages-header' --}}
-    <b:with value='data:widget.sectionId == "main-header"' var='is_menu'>
+  {{!-- If the widget is in the header section, add the class 'pages-header' --}}
+  <b:with value='data:widget.sectionId == "main-header"' var='is_menu'>
+    <b:if cond='data:is_menu'>
+      <input type="checkbox" id="show_menu" class="offcanvas-control" />
+    </b:if>
+    <div class='pages'>
+      <b:if cond='data:is_menu'>
+        <label class="offcanvas-switch" for="show_menu">
+          <b:include data='{icon: "menu"}' name='@icons' />
+        </label>
+      </b:if>
       <b:class expr:cond='data:is_menu' name='pages--header' />
+
       <nav class='navbar'>
         <ul expr:class='data:is_menu ? "menu" : "nav"'>
           <b:if cond='data:is_menu'>
@@ -12,6 +21,6 @@
           </b:if>
         </ul>
       </nav>
-    </b:with>
-  </div>
+    </div>
+  </b:with>
 </b:includable>
