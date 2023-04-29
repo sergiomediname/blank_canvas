@@ -24,6 +24,7 @@
   --logo-title: $(light.logo.title);
   --logo-subtitle: $(light.logo.subtitle);
   --menu-link: $(light.menu.color);
+  --footer-bg: $(light.footer.bg);
 }
 
 /* Box sizing rules */
@@ -193,6 +194,23 @@ a {
   padding: 10px 0;
   background-color: var(--bottom-header-bg);
   color: var(--bottom-header-color);
+}
+
+.footer {
+  margin-top: var(--space-primary);
+  background-color: var(--footer-bg);
+}
+.footer .wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-primary);
+  padding-top: var(--space-primary);
+  padding-bottom: var(--space-primary);
+}
+@media (min-width: 992px) {
+  .footer .wrap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .main .wrap {

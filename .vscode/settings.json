@@ -22,7 +22,8 @@
     "customization",
     "b:skin",
     "icons",
-    "admin"
+    "admin",
+    "footer"
   ],
   "editor.lineHeight": 1.8
 }
