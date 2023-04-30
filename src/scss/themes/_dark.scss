@@ -1,0 +1,16 @@
+[data-theme="dark"] {
+  // Global
+  --body-bg: $(dark.body.bg);
+  --text-color: $(dark.text.color);
+  // Header
+  --main-header-bg: $(dark.main.header.bg);
+  --top-header-bg: $(dark.top.header.bg);
+  --bottom-header-bg: $(dark.bottom.header.bg);
+  // Logotipo
+  --logo-title: $(dark.logo.title);
+  --logo-subtitle: $(dark.logo.subtitle);
+  // Menu
+  --menu-link: $(dark.menu.color);
+  // Footer
+  --footer-bg: $(dark.footer.bg);
+}

@@ -1,6 +1,7 @@
 <header class="header">
   <b:if cond='["true", "false"] contains data:skin.vars.s_topHeader ? data:skin.vars.s_topHeader : false'>
     <div class="top-header">
+      <b:include name="@checkDarken" data='{ color: data:skin.vars.light_top_header_bg }' />
       <div class="container">
         <div class="wrap">
           <b:section id='top-header'>
@@ -12,6 +13,7 @@
   </b:if>
 
   <div class="main-header">
+    <b:include name="@checkDarken" data='{ color: data:skin.vars.light_main_header_bg }' />
     <div class="container">
       <div class="wrap">
         <b:section id='main-header'>
@@ -24,6 +26,7 @@
 
   <b:if cond='["true", "false"] contains data:skin.vars.s_bottomHeader ? data:skin.vars.s_bottomHeader : false'>
     <div class="bottom-header">
+      <b:include name="@checkDarken" data='{ color: data:skin.vars.light_bottom_header_bg }' />
       <div class="container">
         <div class="wrap">
           <b:section id='bottom-header'>

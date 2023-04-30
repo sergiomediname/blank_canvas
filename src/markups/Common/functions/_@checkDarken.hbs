@@ -1,0 +1,16 @@
+<b:includable id='@checkDarken'>
+  <b:comment><!--
+  // @param {color} color - Variable de color de data:skin.vars
+  // @param {string} [attr=data-theme] - Nombre del atributo
+  // @param {string} [value=dark] - Valor del atributo
+  // @param {string} [callback] - El nombre de otra inclusion
+  --></b:comment>
+  <b:with value='+((data:color.red * .299),(data:color.green * .587),(data:color.blue * .114))' var="brightness">
+    <b:if cond='data:brightness lt 155'>
+      <b:if cond='data:callback'>
+        <b:include expr:name='data:callback' />
+      </b:if>
+      <b:attr expr:name='data:attr ?: "data-theme"' expr:value='data:value ?: "dark"' />
+    </b:if>
+  </b:with>
+</b:includable>

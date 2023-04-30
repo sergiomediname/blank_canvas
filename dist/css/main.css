@@ -27,6 +27,18 @@
   --footer-bg: $(light.footer.bg);
 }
 
+[data-theme=dark] {
+  --body-bg: $(dark.body.bg);
+  --text-color: $(dark.text.color);
+  --main-header-bg: $(dark.main.header.bg);
+  --top-header-bg: $(dark.top.header.bg);
+  --bottom-header-bg: $(dark.bottom.header.bg);
+  --logo-title: $(dark.logo.title);
+  --logo-subtitle: $(dark.logo.subtitle);
+  --menu-link: $(dark.menu.color);
+  --footer-bg: $(dark.footer.bg);
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -184,16 +196,17 @@ a {
 }
 .header .top-header {
   background-color: var(--top-header-bg);
-  color: var(--top-header-color);
+  color: var(--text-color);
   padding: 10px 0;
 }
 .header .main-header {
   background-color: var(--main-header-bg);
+  color: var(--text-color);
 }
 .header .bottom-header {
   padding: 10px 0;
   background-color: var(--bottom-header-bg);
-  color: var(--bottom-header-color);
+  color: var(--text-color);
 }
 
 .footer {

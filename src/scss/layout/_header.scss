@@ -7,15 +7,16 @@
   }
   .top-header {
     background-color: var(--top-header-bg);
-    color: var(--top-header-color);
+    color: var(--text-color);
     padding: 10px 0;
   }
   .main-header {
     background-color: var(--main-header-bg);
+    color: var(--text-color);
   }
   .bottom-header {
     padding: 10px 0;
     background-color: var(--bottom-header-bg);
-    color: var(--bottom-header-color);
+    color: var(--text-color);
   }
 }
