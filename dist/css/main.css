@@ -25,6 +25,8 @@
   --logo-subtitle: $(light.logo.subtitle);
   --menu-link: $(light.menu.color);
   --footer-bg: $(light.footer.bg);
+  --title-color: $(light.title.color);
+  --meta-color: $(light.meta.color);
 }
 
 [data-theme=dark] {
@@ -37,6 +39,8 @@
   --logo-subtitle: $(dark.logo.subtitle);
   --menu-link: $(dark.menu.color);
   --footer-bg: $(dark.footer.bg);
+  --title-color: $(dark.title.color);
+  --meta-color: $(dark.meta.color);
 }
 
 /* Box sizing rules */
@@ -301,10 +305,18 @@ ul {
   gap: var(--space-primary);
 }
 
+.card__title {
+  color: var(--title-color);
+}
+.card__title a {
+  color: inherit;
+}
+
 .meta {
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: var(--meta-color);
 }
 
 .comments__content > * + * {
